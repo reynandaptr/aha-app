@@ -16,22 +16,6 @@ export const useAuthValidateToken = (
   );
 };
 
-export const useAuthRedirect = (
-  loginProvider: string,
-  query: string,
-  options?: QueryOptions,
-  callback?: ReactQueryCallback<ValidateUserResponse>,
-) => {
-  return useCustomQuery<ValidateUserResponse>(
-    ['v1', 'auth', 'redirect', loginProvider.toLowerCase()],
-    {
-      url: `/v1/auth/redirect/${loginProvider.toLowerCase()}${query}`,
-    },
-    options,
-    callback,
-  );
-}
-
 export const useAuthLogout = (
   options?: QueryOptions,
   callback?: ReactQueryCallback,

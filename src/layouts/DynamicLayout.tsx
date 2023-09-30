@@ -17,12 +17,6 @@ export const DynamicLayout = ({ Component, pageProps }: AppProps) => {
           </main>
         </NonProtectedPage>
       )
-    case '/app/redirect':
-      return (
-        <main>
-          <Component {...pageProps} />
-        </main>
-      )
     default:
       return (
         <ProtectedPage>
