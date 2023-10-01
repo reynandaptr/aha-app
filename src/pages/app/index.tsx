@@ -14,11 +14,11 @@ export default function App() {
     retry: false,
   }, {
     onSuccess: () => {
-      router.push('/')
+      router.replace('/')
       dispatch(setAuthData(undefined))
     },
     onError: () => {
-      router.push('/')
+      router.replace('/')
       dispatch(setAuthData(undefined))
     }
   })

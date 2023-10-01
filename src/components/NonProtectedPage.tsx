@@ -28,7 +28,7 @@ export default function NonProtectedPage({ children }: { children: JSX.Element }
     }
   });
 
-  if (authData) router.push('/app')
+  if (authData) router.replace('/app')
   if (authData || isLoadingValidateToken) return (<Loading />);
 
   return (

@@ -31,7 +31,7 @@ export default function SignIn() {
   const onSubmit: SubmitHandler<LoginRequestBody> = (data) => {
     doAuthLogin(data, {
       onSuccess: () => {
-        router.push('/app')
+        router.replace('/app')
       },
       onError: (error) => {
         toast.error(error.response?.data.message || error.message)
