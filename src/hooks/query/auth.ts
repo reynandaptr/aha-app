@@ -33,6 +33,7 @@ export const useAuthLogout = (
     ['v1', 'auth', 'logout'],
     {
       url: '/v1/auth/logout',
+      method: 'POST',
     },
     options,
     callback,

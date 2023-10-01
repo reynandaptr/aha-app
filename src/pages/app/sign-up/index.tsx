@@ -76,7 +76,7 @@ export default function SignUp() {
           </div>
           <div className="flex items-center justify-between">
             <button className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-4" type="submit">
-              Sign In
+              Sign Up
             </button>
           </div>
           <div className="w-full rounded-lg md:mt-0 sm:max-w-md xl:p-0">
