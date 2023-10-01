@@ -4,6 +4,10 @@ import axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios';
 const client: AxiosInstance = axios.create({
   baseURL: getApiURL(),
   withCredentials: true,
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
 });
 
 export function request<Res = any>(

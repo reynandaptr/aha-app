@@ -7,8 +7,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginRequestBody, useAuthLogin } from "@/hooks/query/auth";
 import { LoginRequestSchema } from "@reynandaptr/aha-types/dist/types";
+import { useRouter } from "next/router";
 
 export default function SignIn() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const {
     register,
@@ -28,6 +30,9 @@ export default function SignIn() {
 
   const onSubmit: SubmitHandler<LoginRequestBody> = (data) => {
     doAuthLogin(data, {
+      onSuccess: () => {
+        router.push('/app')
+      },
       onError: (error) => {
         toast.error(error.response?.data.message || error.message)
       }
