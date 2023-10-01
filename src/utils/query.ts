@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 
 import { request } from './axios';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { BaseResponse } from '@reynandaptr/aha-types/dist';
+import { BaseResponse } from '@reynandaptr/aha-types/dist/types';
 
 export type ReactQueryCallback<Res = any> = {
   onSuccess?:

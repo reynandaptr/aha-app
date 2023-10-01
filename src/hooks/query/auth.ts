@@ -1,6 +1,15 @@
-import { QueryOptions, ReactQueryCallback, useCustomQuery } from "@/utils/query";
+import { QueryOptions, ReactQueryCallback, useCustomMutation, useCustomQuery } from "@/utils/query";
 
-import {ValidateUserResponse} from '@reynandaptr/aha-types/dist';
+import {LoginRequestSchema, SignUpRequestSchema, ValidateUserResponse} from '@reynandaptr/aha-types/dist/types';
+import {z} from 'zod';
+
+export type LoginRequestBody = z.infer<
+  typeof LoginRequestSchema.shape.body
+>;
+
+export type SignUpRequestBody = z.infer<
+  typeof SignUpRequestSchema.shape.body
+>;
 
 export const useAuthValidateToken = (
   options?: QueryOptions,
@@ -28,4 +37,28 @@ export const useAuthLogout = (
     options,
     callback,
   );
-}
+};
+
+export const useAuthLogin = (
+  options?: QueryOptions,
+) => {
+  return useCustomMutation<LoginRequestBody>(
+    {
+      url: '/v1/auth/login',
+      method: 'POST',
+    },
+    options,
+  );
+};
+
+export const useAuthSignUp = (
+  options?: QueryOptions,
+) => {
+  return useCustomMutation<SignUpRequestBody>(
+    {
+      url: '/v1/auth/sign-up',
+      method: 'POST',
+    },
+    options,
+  );
+};

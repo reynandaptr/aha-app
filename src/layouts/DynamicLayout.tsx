@@ -9,7 +9,15 @@ export const DynamicLayout = ({ Component, pageProps }: AppProps) => {
 
   const path = router.pathname
   switch (path) {
-    case '/app/login':
+    case '/app/sign-in':
+      return (
+        <NonProtectedPage>
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </NonProtectedPage>
+      )
+    case '/app/sign-up':
       return (
         <NonProtectedPage>
           <main>

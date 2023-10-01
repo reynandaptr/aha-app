@@ -1,4 +1,4 @@
-import { ValidateUserResponse } from '@reynandaptr/aha-types/dist';
+import { ValidateUserResponse } from '@reynandaptr/aha-types/dist/types';
 import { AuthState } from './_prototype';
 import { createSlice } from '@reduxjs/toolkit';
 import { LoginProvider } from '@prisma/client';

@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@hookform/resolvers':
+    specifier: ^3.3.1
+    version: 3.3.1(react-hook-form@7.46.2)
   '@prisma/client':
     specifier: 4.13.0
     version: 4.13.0(prisma@4.13.0)
@@ -8,8 +11,8 @@ dependencies:
     specifier: ^1.9.6
     version: 1.9.6(react-redux@8.1.2)(react@18.2.0)
   '@reynandaptr/aha-types':
-    specifier: ^0.10.0
-    version: 0.10.0(prisma@4.13.0)
+    specifier: ^0.10.1
+    version: 0.10.1(prisma@4.13.0)
   '@tanstack/react-query':
     specifier: ^4.35.3
     version: 4.35.3(react-dom@18.2.0)(react@18.2.0)
@@ -28,6 +31,9 @@ dependencies:
   react-dom:
     specifier: latest
     version: 18.2.0(react@18.2.0)
+  react-hook-form:
+    specifier: ^7.46.2
+    version: 7.46.2(react@18.2.0)
   react-hot-toast:
     specifier: ^2.4.1
     version: 2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0)
@@ -40,6 +46,9 @@ dependencies:
   redux-persist:
     specifier: ^6.0.0
     version: 6.0.0(react@18.2.0)(redux@4.2.1)
+  zod:
+    specifier: ^3.22.2
+    version: 3.22.2
 
 devDependencies:
   '@types/node':
@@ -157,6 +166,14 @@ packages:
     resolution: {integrity: sha512-NCC3zz2+nvYd+Ckfh87rA47zfu2QsQpvc6k1yzTk+b9KzRj0wkGa8LSoGOXN6Zv4lRf/EIoZ80biDh9HOI+RNQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@hookform/resolvers@3.3.1(react-hook-form@7.46.2):
+    resolution: {integrity: sha512-K7KCKRKjymxIB90nHDQ7b9nli474ru99ZbqxiqDAWYsYhOsU3/4qLxW91y+1n04ic13ajjZ66L3aXbNef8PELQ==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.46.2(react@18.2.0)
+    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
@@ -489,8 +506,8 @@ packages:
       reselect: 4.1.8
     dev: false
 
-  /@reynandaptr/aha-types@0.10.0(prisma@4.13.0):
-    resolution: {integrity: sha512-HByDmNpuRf0TFC6j8vpvoY9p1sKkBiItEGuyxIcXKZGR2EVy0iDe2SaM6XYWTU97YAsH+tLqED+QQO7Kh6qrQQ==, tarball: https://npm.pkg.github.com/download/@reynandaptr/aha-types/0.10.0/64886f737fa365eba75148bc6193c9515d11985a}
+  /@reynandaptr/aha-types@0.10.1(prisma@4.13.0):
+    resolution: {integrity: sha512-MEds6on08JktRkiDaJ9uo1d1O8sB8kqVvkf5ezpxAqndmfu1PK0hb3aglNh++FiT/6ke6f25QG37mZeOK7RTYA==, tarball: https://npm.pkg.github.com/download/@reynandaptr/aha-types/0.10.1/d3f96223695a37b053da78f951fe6f39692b4c95}
     requiresBuild: true
     dependencies:
       '@prisma/client': 4.13.0(prisma@4.13.0)
@@ -3559,6 +3576,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form@7.46.2(react@18.2.0):
+    resolution: {integrity: sha512-x1DWmHQchV7x2Rq9l99M/cQHC8JGchAnw9Z0uTz5KrPa0bTl/Inm1NR7ceOARfIrkNuQNAhuSuZPYa6k7QYn3Q==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-hot-toast@2.4.1(csstype@3.1.2)(react-dom@18.2.0)(react@18.2.0):

@@ -27,7 +27,7 @@ export default function ProtectedPage({ children }: { children: JSX.Element }) {
     }
   });
 
-  if (!authData) router.push('/app/login')
+  if (!authData) router.push('/app/sign-in')
   if (!authData || isLoadingValidateToken) return (<Loading />);
 
   return (
