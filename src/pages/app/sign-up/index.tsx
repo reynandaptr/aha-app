@@ -49,31 +49,31 @@ export default function SignUp() {
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
         <div className="w-1/4">
-          <Card>
-            <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl">Sign Up</CardTitle>
-              <CardDescription>
-                Enter your email below to Sign Up
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              <div className="grid grid-cols-1 gap-6">
-                <Button variant="outline">
-                  <Icons.google className="mr-2 h-4 w-4" />
-                  <Link href={`${getApiURL()}/v1/auth/login/google`} onClick={() => dispatch(setLoginMode('GOOGLE'))}>Google</Link>
-                </Button>
-              </div>
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t" />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Card>
+              <CardHeader className="space-y-1">
+                <CardTitle className="text-2xl">Sign Up</CardTitle>
+                <CardDescription>
+                  Enter your email below to Sign Up
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <div className="grid grid-cols-1 gap-6">
+                  <Button variant="outline">
+                    <Icons.google className="mr-2 h-4 w-4" />
+                    <Link href={`${getApiURL()}/v1/auth/login/google`} onClick={() => dispatch(setLoginMode('GOOGLE'))}>Google</Link>
+                  </Button>
                 </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">
-                    Or continue with
-                  </span>
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-background px-2 text-muted-foreground">
+                      Or continue with
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
                   <Input id="email" type="email" {...register('email')} />
@@ -101,12 +101,12 @@ export default function SignUp() {
                     </p>
                   )}
                 </div>
-              </form>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full" type="submit">Sign Up</Button>
-            </CardFooter>
-          </Card>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" type="submit">Sign Up</Button>
+              </CardFooter>
+            </Card>
+          </form>
         </div>
       </div>
     </section>
