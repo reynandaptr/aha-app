@@ -48,7 +48,7 @@ export default function SignIn() {
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <form onSubmit={handleSubmit(onSubmit)} className="w-1/4">
+        <div className="w-1/4">
           <Card>
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl">Sign In</CardTitle>
@@ -73,30 +73,32 @@ export default function SignIn() {
                   </span>
                 </div>
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" {...register('email')} />
-                {errors.email && (
-                  <p className="text-xs italic text-red-500 mt-2">
-                    {errors.email?.message}
-                  </p>
-                )}
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" {...register('password')} />
-                {errors.password && (
-                  <p className="text-xs italic text-red-500 mt-2">
-                    {errors.password?.message}
-                  </p>
-                )}
-              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="grid gap-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" {...register('email')} />
+                  {errors.email && (
+                    <p className="text-xs italic text-red-500 mt-2">
+                      {errors.email?.message}
+                    </p>
+                  )}
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input id="password" type="password" {...register('password')} />
+                  {errors.password && (
+                    <p className="text-xs italic text-red-500 mt-2">
+                      {errors.password?.message}
+                    </p>
+                  )}
+                </div>
+              </form>
             </CardContent>
             <CardFooter>
               <Button className="w-full" type="submit">Sign Up</Button>
             </CardFooter>
           </Card>
-        </form>
+        </div>
       </div>
     </section>
   );
