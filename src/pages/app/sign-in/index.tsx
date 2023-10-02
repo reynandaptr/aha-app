@@ -8,6 +8,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginRequestBody, useAuthLogin } from "@/hooks/query/auth";
 import { LoginRequestSchema } from "@reynandaptr/aha-types/dist/types";
 import { useRouter } from "next/router";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Icons } from "@/components/ui/icons";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
 export default function SignIn() {
   const router = useRouter();
@@ -42,45 +48,54 @@ export default function SignIn() {
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-          AHA
-        </a>
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-1/4" onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <label className="block text-grey-darker text-sm font-bold mb-2">
-              Email
-            </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="email" {...register('email')} />
-            {errors.email && (
-              <p className="text-xs italic text-red-500 mt-2">
-                {errors.email?.message}
-              </p>
-            )}
-          </div>
-          <div className="mb-6">
-            <label className="block text-grey-darker text-sm font-bold mb-2">
-              Password
-            </label>
-            <input className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" id="password" type="password" {...register('password')} />
-            {errors.password && (
-              <p className="text-xs italic text-red-500 mt-2">
-                {errors.password?.message}
-              </p>
-            )}
-          </div>
-          <div className="flex items-center justify-between">
-            <button className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-4" type="submit">
-              Sign In
-            </button>
-          </div>
-          <div className="w-full rounded-lg md:mt-0 sm:max-w-md xl:p-0">
-            <div className="flex flex-col justify-center items-center">
-              <a href={`${getApiURL()}/v1/auth/login/google`} onClick={() => dispatch(setLoginMode('GOOGLE'))} className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mb-4">
-                <svg className="w-4 h-4 mr-2 -ml-1" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"></path></svg>
-                Continue with Google
-              </a>
-            </div>
-          </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-1/4">
+          <Card>
+            <CardHeader className="space-y-1">
+              <CardTitle className="text-2xl">Sign In</CardTitle>
+              <CardDescription>
+                Enter your email below to Sign In
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              <div className="grid grid-cols-1 gap-6">
+                <Button variant="outline">
+                  <Icons.google className="mr-2 h-4 w-4" />
+                  <Link href={`${getApiURL()}/v1/auth/login/google`} onClick={() => dispatch(setLoginMode('GOOGLE'))}>Google</Link>
+                </Button>
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-background px-2 text-muted-foreground">
+                    Or continue with
+                  </span>
+                </div>
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" {...register('email')} />
+                {errors.email && (
+                  <p className="text-xs italic text-red-500 mt-2">
+                    {errors.email?.message}
+                  </p>
+                )}
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="password">Password</Label>
+                <Input id="password" type="password" {...register('password')} />
+                {errors.password && (
+                  <p className="text-xs italic text-red-500 mt-2">
+                    {errors.password?.message}
+                  </p>
+                )}
+              </div>
+            </CardContent>
+            <CardFooter>
+              <Button className="w-full" type="submit">Sign Up</Button>
+            </CardFooter>
+          </Card>
         </form>
       </div>
     </section>

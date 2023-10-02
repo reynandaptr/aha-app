@@ -14,7 +14,6 @@ export default function NonProtectedPage({ children }: { children: JSX.Element }
     }),
     shallowEqual,
   );
-  const query = new URLSearchParams(window.location.search);
 
   const { isLoading: isLoadingValidateToken } = useAuthValidateToken({
     retry: false,
