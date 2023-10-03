@@ -55,10 +55,10 @@ export const DashboardNavbar = ({
             {...props}
           >
             <Link
-              href="/"
+              href="/app"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              Home
+              Dashboard
             </Link>
             {authData?.is_verified && (
               <>
