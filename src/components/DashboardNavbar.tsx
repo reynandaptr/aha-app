@@ -17,6 +17,7 @@ import { RootState } from "@/globalStates/_prototype"
 import { useRouter } from "next/router"
 import { useAuthLogout } from "@/hooks/query/auth"
 import { setAuthData } from "@/globalStates/auth"
+import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu"
 
 export const DashboardNavbar = ({
   className,
@@ -62,22 +63,10 @@ export const DashboardNavbar = ({
             {authData?.is_verified && (
               <>
                 <Link
-                  href="/examples/dashboard"
+                  href="/app/dashboard/user"
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                 >
-                  Customers
-                </Link>
-                <Link
-                  href="/examples/dashboard"
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Products
-                </Link>
-                <Link
-                  href="/examples/dashboard"
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-                >
-                  Settings
+                  User Dashboard
                 </Link>
               </>
             )}
@@ -101,6 +90,14 @@ export const DashboardNavbar = ({
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <Link href="/app/profile">
+                    <DropdownMenuItem className="cursor-pointer">
+                      Profile
+                    </DropdownMenuItem>
+                  </Link>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => doAuthLogOut()} className="cursor-pointer">
                   Log out
                 </DropdownMenuItem>
@@ -109,7 +106,7 @@ export const DashboardNavbar = ({
           </div>
         </div>
       </div>
-    </div>
+    </div >
 
   )
 }

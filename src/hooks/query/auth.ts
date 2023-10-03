@@ -1,6 +1,6 @@
 import { QueryOptions, ReactQueryCallback, useCustomMutation, useCustomQuery } from "@/utils/query";
 
-import { EmailVerificationRequestSchema, LoginRequestSchema, SignUpRequestSchema, ValidateUserResponse } from '@reynandaptr/aha-types/dist/types';
+import { EmailVerificationRequestSchema, LoginRequestSchema, SignUpRequestSchema, UpdateUserProfileRequestSchema, ValidateUserResponse } from '@reynandaptr/aha-types/dist/types';
 import { z } from 'zod';
 
 export type LoginRequestBody = z.infer<
@@ -13,6 +13,10 @@ export type SignUpRequestBody = z.infer<
 
 export type EmailVerificationRequestBody = z.infer<
   typeof EmailVerificationRequestSchema.shape.body
+>;
+
+export type UpdateUserProfileRequestBody = z.infer<
+  typeof UpdateUserProfileRequestSchema.shape.body
 >;
 
 export const useAuthValidateToken = (
@@ -91,3 +95,15 @@ export const useAuthResendEmailVerification = (
     options,
   );
 };
+
+export const useUpdateUserProfile = (
+  options?: QueryOptions,
+) => {
+  return useCustomMutation<UpdateUserProfileRequestBody>(
+    {
+      url: '/v1/auth/profile',
+      method: 'PUT',
+    },
+    options,
+  );
+}

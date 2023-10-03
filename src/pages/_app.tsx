@@ -36,7 +36,6 @@ export default function App({ Component, pageProps, router }: ComponentAppWithPa
             <main>
               <Component {...pageProps} key={router.route} />
             </main>
-            <Footer />
           </>
         )
       }

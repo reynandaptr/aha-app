@@ -7,6 +7,7 @@ import { RootState } from "@/globalStates/_prototype";
 import { DashboardNavbar } from "./DashboardNavbar";
 import { DashboardFooter } from "./DashboardFooter";
 import { Button } from "./ui/button";
+import toast from "react-hot-toast";
 
 export default function ProtectedPage({ children }: { children: JSX.Element }) {
   const router = useRouter()
@@ -31,6 +32,16 @@ export default function ProtectedPage({ children }: { children: JSX.Element }) {
   });
 
   const { mutate: doAuthResendEmailVerification } = useAuthResendEmailVerification()
+  const resendEmailVerification = () => {
+    doAuthResendEmailVerification({}, {
+      onSuccess() {
+        toast.success('Email verification sent!')
+      },
+      onError(error) {
+        toast.error(error.response?.data.message || error.message)
+      }
+    })
+  }
 
   if (!authData) router.replace('/app/sign-in')
   if (!authData || isLoadingValidateToken) return (<Loading />);
@@ -42,12 +53,11 @@ export default function ProtectedPage({ children }: { children: JSX.Element }) {
         <div>
           <section>
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-              <Button onClick={() => doAuthResendEmailVerification({})}>Re-send email verification</Button>
+              <Button onClick={() => resendEmailVerification()}>Re-send email verification</Button>
             </div>
           </section>
         </div>
       )}
-      <DashboardFooter />
     </>
   )
 }

@@ -46,7 +46,7 @@ export default function AppLayout({ children }: { children: JSX.Element }) {
 
   return (
     <>
-      <main className="ml-72 p-4">
+      <main className="w-3/5 m-auto">
         <div className="mt-16" />
         {children}
       </main>
