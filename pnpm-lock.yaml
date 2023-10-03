@@ -26,14 +26,17 @@ dependencies:
     specifier: ^1.9.6
     version: 1.9.6(react-redux@8.1.2)(react@18.2.0)
   '@reynandaptr/aha-types':
-    specifier: ^0.11.1
-    version: 0.11.1(prisma@4.13.0)
+    specifier: ^0.13.0
+    version: 0.13.0(prisma@4.13.0)
   '@tanstack/react-query':
     specifier: ^4.35.3
     version: 4.35.3(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query-devtools':
     specifier: ^4.35.3
     version: 4.35.3(@tanstack/react-query@4.35.3)(react-dom@18.2.0)(react@18.2.0)
+  '@tanstack/react-table':
+    specifier: ^8.10.3
+    version: 8.10.3(react-dom@18.2.0)(react@18.2.0)
   axios:
     specifier: ^1.5.1
     version: 1.5.1
@@ -46,6 +49,9 @@ dependencies:
   lucide-react:
     specifier: ^0.279.0
     version: 0.279.0(react@18.2.0)
+  moment:
+    specifier: ^2.29.4
+    version: 2.29.4
   next:
     specifier: latest
     version: 13.5.4(react-dom@18.2.0)(react@18.2.0)
@@ -1088,8 +1094,8 @@ packages:
       reselect: 4.1.8
     dev: false
 
-  /@reynandaptr/aha-types@0.11.1(prisma@4.13.0):
-    resolution: {integrity: sha512-MmaALcCvEkpaEzrlsQwOslxtqzFs+ednBjxh1OB1kXZJGXnqPyXgGg2sOeXKo8wwsSiLnaFI7ID1p3UKpzAAdQ==, tarball: https://npm.pkg.github.com/download/@reynandaptr/aha-types/0.11.1/ac2a9b6bdff947463d93fdd3952fdc611f3a3a27}
+  /@reynandaptr/aha-types@0.13.0(prisma@4.13.0):
+    resolution: {integrity: sha512-kW7PJWmCeSX2jTGaUn07dSuyxQtjFy8pDVLOuzosbB63oze7NA0IBnyLtcrQTZT435ls1CndFOlydrU1qggDPg==, tarball: https://npm.pkg.github.com/download/@reynandaptr/aha-types/0.13.0/b0640302d856801c816f2e24a44fec4f05bc12ef}
     requiresBuild: true
     dependencies:
       '@prisma/client': 4.13.0(prisma@4.13.0)
@@ -1150,6 +1156,23 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
+    dev: false
+
+  /@tanstack/react-table@8.10.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Qya1cJ+91arAlW7IRDWksRDnYw28O446jJ/ljkRSc663EaftJoBCAU10M+VV1K6MpCBLrXq1BD5IQc1zj/ZEjA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.10.3
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@tanstack/table-core@8.10.3:
+    resolution: {integrity: sha512-hJ55YfJlWbfzRROfcyA/kC1aZr/shsLA8XNAwN8jXylhYWGLnPmiJJISrUfj4dMMWRiFi0xBlnlC7MLH+zSrcw==}
+    engines: {node: '>=12'}
     dev: false
 
   /@types/cross-spawn@6.0.2:
@@ -3559,6 +3582,10 @@ packages:
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
     dev: true
+
+  /moment@2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
