@@ -59,7 +59,7 @@ export default function SignUp() {
               </CardHeader>
               <CardContent className="grid gap-4">
                 <div className="grid grid-cols-1 gap-6">
-                  <Button variant="outline">
+                  <Button variant="outline" type="button">
                     <Icons.google className="mr-2 h-4 w-4" />
                     <Link href={`${getApiURL()}/v1/auth/login/google`} onClick={() => dispatch(setLoginMode('GOOGLE'))}>Google</Link>
                   </Button>
