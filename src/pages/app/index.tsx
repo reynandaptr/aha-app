@@ -28,7 +28,9 @@ export default function App() {
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
     if (query.get('message')) {
-      toast.error(query.get('message'))
+      toast.success(query.get('message'))
+    } else if (query.get('error')) {
+      toast.error(query.get('error'))
     }
   }, [])
   return (

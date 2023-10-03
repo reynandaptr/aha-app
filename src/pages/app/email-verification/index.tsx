@@ -34,7 +34,7 @@ export default function EmailVerification() {
           if (!authData) {
             return router.replace('/')
           }
-          router.replace('/app?message=Email verification failed')
+          router.replace('/app?error=Email verification failed')
         }
       })
     }
