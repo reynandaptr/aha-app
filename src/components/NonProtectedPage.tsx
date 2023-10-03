@@ -5,7 +5,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Loading } from "./Loading";
 import { RootState } from "@/globalStates/_prototype";
 
-export default function NonProtectedPage({ children }: { children: JSX.Element }) {
+export default function NonProtectedPage({ children, skipValidate }: { children: JSX.Element, skipValidate?: boolean }) {
   const router = useRouter()
   const dispatch = useDispatch();
   const { authData } = useSelector(
@@ -16,6 +16,7 @@ export default function NonProtectedPage({ children }: { children: JSX.Element }
   );
 
   const { isLoading: isLoadingValidateToken } = useAuthValidateToken({
+    enabled: !skipValidate,
     retry: false,
     refetchOnWindowFocus: false,
   }, {
@@ -27,8 +28,8 @@ export default function NonProtectedPage({ children }: { children: JSX.Element }
     }
   });
 
-  if (authData) router.replace('/app')
-  if (authData || isLoadingValidateToken) return (<Loading />);
+  if (authData && !skipValidate) router.replace('/app')
+  if ((authData || isLoadingValidateToken) && !skipValidate) return (<Loading />);
 
   return (
     <>
