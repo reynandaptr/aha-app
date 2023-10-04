@@ -33,6 +33,7 @@ export default function Profile() {
     register: registerResetPasswordForm,
     handleSubmit: handleSubmitResetPasswordForm,
     formState: { isDirty: isResetPasswordFormDirty, errors: resetPasswordFormErrors },
+    reset: resetUpdateProfileForm,
   } = useForm<ResetPasswordRequestBody>({
     resolver: zodResolver(ResetPasswordRequestSchema.shape.body),
   });
@@ -68,7 +69,8 @@ export default function Profile() {
   const onSubmitResetPasswordForm: SubmitHandler<ResetPasswordRequestBody> = (data) => {
     doResetPassword(data, {
       onSuccess: () => {
-        toast.success('Password reset')
+        toast.success('Reset password success')
+        resetUpdateProfileForm()
       },
       onError: (error) => {
         toast.error(error.response?.data.message || error.message)
